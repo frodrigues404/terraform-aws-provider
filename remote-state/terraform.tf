@@ -7,8 +7,16 @@ terraform {
     }
   }
 }
-
+/*
 provider "aws" {
-  region = var.aws_region
+  region = "us-east-1"
   
+}
+*/
+terraform {
+  backend "s3" {
+    bucket = "ferrodrigues-remote-state"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
